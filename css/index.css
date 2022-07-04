@@ -151,6 +151,15 @@ section {
     width:100%;
     padding:0 30px;
 }
+.page-body .home-section1{
+    margin:30px 0;
+    width:100%;
+    height:auto;
+}
+.page-body .home-section1 img{
+    width:100%;
+    height:auto;
+}
 
 .page-body .home-section:first-of-type{
     padding-top: 50px;
@@ -493,36 +502,28 @@ ul.ul-paper div.paper-content:hover {
  }
 
  /* swiper*/
- .swiper-container {
-    width: 100%;
-    height: 360px;
-    padding-bottom:60px;
-    box-sizing: border-box;
-  }
-  .swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    background: transparent;
 
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    transition: 300ms;
-    transform: scale(0.8);
+  .swiper {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
-  .swiper-slide-active,.swiper-slide-duplicate-active{
-    transform: scale(1);
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 300px;
   }
+
+  .swiper-slide video {
+    display: block;
+    width: 100%;
+    /* object-fit: cover; */
+  }
+  
+
+  /** swiper end **/
 
   .myVideo{
     /* border:1px solid #ccc; */
