@@ -197,7 +197,11 @@ section {
 .home-section .profile.pro-r a{
     color: #4caf50;
     font-weight:600;
-    /* text-decoration: underline; */
+}
+
+.profile.pro-r a:hover,
+.profile.pro-r a:focus{
+    text-decoration: underline;
 }
 .portrait-title{
     font-size: 16px;
@@ -292,6 +296,14 @@ p.edu-sc{
 }
 .education .description:first-of-type{
     padding-bottom:16px;
+}
+
+.description a{
+   color: #4caf50;
+}
+.description a:hover,
+.description a:focus{
+    text-decoration: underline;
 }
 
 p.vitae{
