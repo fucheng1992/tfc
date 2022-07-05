@@ -3,7 +3,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  color: #fff;
+  color: #333;
   font: 400 12px/24px 'Microsoft YaHei';
 }
 
@@ -17,7 +17,7 @@ h5,
 h6 {
     font-weight: 400;
     line-height: 1.25;
-    color: #fff;
+    color: #313131;
     text-rendering: optimizeLegibility;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -196,7 +196,7 @@ section {
 }
 .portrait-title h2{
     padding:20px 0 10px;
-    color:#fff;
+    color:#000;
     font-size: 18px;
 }
 
@@ -220,6 +220,25 @@ section {
     text-decoration: underline;
 }
 
+.network-icon{
+    width:100%;
+}
+
+.network-icon a{
+    display:inline-block;
+    margin:0 6px;
+}
+
+.network-icon a img{
+    width:30px;
+    height:auto;
+}
+
+.network-icon a img.small-img{
+    width:28px;
+    height:auto;
+}
+
 
 .home-section .profile.pro-r p{
     overflow: hidden;
@@ -237,17 +256,19 @@ section {
     font-size:16px;
     line-height:26px;
 }
-
-.profile .education{
-
+ul.education{
+    padding-top:30px;
 }
-.profile .education li{
+ul.education li{
     position:relative;
+    font-size: 16px;
 }
 p.edu-sc{
- /* color: rgba(0,0,0,.6); */
- color:rgba(255,255,255, 0.8);
- font-size: 12px;
+ color: rgba(0,0,0,.6);
+ font-size: 14px;
+}
+.profile.pro-r p.edu-sc{
+    font-size: 14px;
 }
 .education .cap{
     position:absolute;
@@ -260,10 +281,13 @@ p.edu-sc{
 .education .description{
     padding-left:46px;
 }
+.education .description:first-of-type{
+    padding-bottom:16px;
+}
 
 p.vitae{
     position:relative;
-    margin-top:40px;
+    margin-top:30px;
     padding-left:46px;
 }
 p.vitae a{
@@ -292,12 +316,6 @@ p.vitae .download{
     position: relative;
     border-radius: var(--borderWidth);
 }
-/* .gradient-border {
-    --borderWidth: 3px;
-    background: #1D1F20;
-    position: relative;
-    border-radius: var(--borderWidth);
-  } */
   .commend-title:after {
     content: '';
     position: absolute;
@@ -379,12 +397,25 @@ p.vitae .download{
     list-style: disc !important; 
     padding:30px 0 0 30px;
 }
+.home-section ul.ul-edu.no-pat{
+    padding-top:0
+}
 ul.ul-edu li{
     list-style-type: disc !important;
     font-size: 16px;
     line-height:26px;
 }
 
+ul.ul-edu-item{
+    padding:12px 0 12px 40px;
+}
+
+ul.ul-edu-item li{
+    list-style-type: decimal  !important;
+    color:rgba(0,0,0,.6);
+    font-size: 14px;
+    line-height:26px;
+}
 ul.ul-paper{
     font-size:16px;
     padding-left:20px;
@@ -398,7 +429,6 @@ ul.ul-paper li{
     word-wrap: break-word;
     word-break: break-word;
     cursor: pointer;
-    /* margin:0 auto 20px 0; */
     padding:0 20px 20px 20px;
     border-left: 2px solid #ccc;
 }
@@ -468,6 +498,7 @@ ul.ul-paper div.paper-content:hover {
   #map-container{
     width:100%;
     height:352px;
+    margin-top:20px;
   }
 
   @media screen and (max-width: 860px) {
