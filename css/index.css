@@ -157,6 +157,10 @@ section {
     width:100%;
     height:auto;
     z-index:9;
+    box-shadow: 0 3px 6px -3px#183665;
+    -moz-box-shadow: 0 3px 6px -3px#183665;
+    -ms-box-shadow: 0 3px 6px -3px#183665;
+    -webkit-box-shadow: 0 3px 6px -3px#183665;
 }
 
 .home-section1 img{
