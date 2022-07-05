@@ -71,7 +71,7 @@ section {
     left:0;
     width:100%;
     height:60px;
-    background:#183665; /* #fdad14 */
+    background:#00cccc; /* #fdad14 */
     box-shadow: 0 2px 4px rgba(0,0,0,.11);
     font-size: 16px;
     z-index:1000;
