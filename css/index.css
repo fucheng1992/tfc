@@ -531,6 +531,10 @@ ul.ul-paper div.paper-content:hover {
     .nav-container{
         padding:0 20px;
     }
+    .nav-container a,
+    .navbar{
+      font-size:12px;
+    }
  }
 
 
