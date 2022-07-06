@@ -97,7 +97,7 @@ section {
 }
 
 .nav-left{
-    flex:1;
+    /* flex:1; */
 }
 .nav-right{
     flex:4;
@@ -537,6 +537,12 @@ ul.ul-paper div.paper-content:hover {
     }
  }
 
+ @media screen and (min-width: 861px) {
+    .nav-left{
+        flex:1;
+    }
+ }
+
 
  /**
  English
@@ -579,6 +585,10 @@ ul.ul-paper div.paper-content:hover {
     display: block;
     width: 100%;
     /* object-fit: cover; */
+  }
+
+  .swiper-pc,.swiper-h5{
+    display:none;
   }
   
 
