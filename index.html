@@ -117,10 +117,22 @@
                     <h2 class="pro-title line"><strong>WORK EXPERIENCES</strong></h2>
                     <ul class="ul-edu">
                         <li>
-                            <p>Postdoc. Solid Mechanics, 06/2020 – 11/2022</p>
+                            <p>Postdoc. Solid Mechanics,&nbsp;&nbsp;&nbsp;06/2020 – 11/2022</p>
                             <p class="edu-sc"><strong>Co-advisor</strong>: Prof. Liangbin Li</p>
                             <p class="edu-sc"><strong>Research Area</strong>: Soft material mechanics</p>
-                            <p class="edu-sc">University of Science and Technology of China (USTC), Hefei, China </p>
+                            <p class="edu-sc">University of Science and Technology of China (USTC), Hefei, China</p><br/>
+                        </li>
+                        <li>
+                            <p>Postdoc. Solid material mechanics,&nbsp;&nbsp;&nbsp;1/2023 – 3/2023</p>
+                            <p class="edu-sc"><strong>Co-advisor</strong>: Prof. Jianping Gong</p>
+                            <p class="edu-sc"><strong>Research Area</strong>: Fracture of soft materials</p>
+                            <p class="edu-sc">Hokkaido University, Sapporo, Hokkaido, Japan</p><br/>
+                        </li>
+                        <li>
+                            <p>JSPS Postdoctoral Fellow,&nbsp;&nbsp;&nbsp;4/2023 – 3/2025</p>
+                            <p class="edu-sc"><strong>Host</strong>: Prof. Jianping Gong</p>
+                            <p class="edu-sc"><strong>Research Area</strong>: Fracture of soft materials</p>
+                            <p class="edu-sc">Hokkaido University, Sapporo, Hokkaido, Japan</p>
                         </li>
                     </ul>
                 </div>
@@ -334,11 +346,16 @@
             <ul class="email-wz">
                 <li>
                     <img src="./author/email.png"/>
-                    <a href="mailto:tfc1992@ustc.edu.cn">tfc1992@ustc.edu.cn</a>
+                    <a href="mailto:tfc1992@ustc.edu.cn">tfc1992@ustc.edu.cn</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="mailto:tianfc@sci.hokudai.ac.jp">tianfc@sci.hokudai.ac.jp</a>
+                    
                 </li>
                 <li> 
                     <img src="./author/wz.png"/>
-                    <p>National Synchrotron Radiation Laboratory, No. 42, Hehua South Road, Shushan District, Hefei City, Anhui Province 230029</p>
+                    <p>Laboratory of Soft & Wet Matter</p>
+                    <p>Faculty of Advanced Life Science</p>
+                    <p>Hokkaido University</p>
+                    <p>North 21 West 11, Kita-ku, Sapporo, Hokkaido 001-0021 JAPAN</p>
                     <div id="map-container"></div>
                 </li>
                
@@ -360,15 +377,13 @@
         }
 
         var map = new BMapGL.Map('map-container'); // 创建Map实例
+            map.centerAndZoom(new BMapGL.Point(141.340013,43.077957), 18);
+            var marker = new BMapGL.Marker(new BMapGL.Point(141.340013,43.077957));
+            map.addOverlay(marker);
             var zoomCtrl = new BMapGL.ZoomControl();  // 添加缩放控件
             map.addControl(zoomCtrl);
             map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
-            var myGeo = new BMapGL.Geocoder();// 将地址解析结果显示在地图上,并调整地图视野
-            myGeo.getPoint("安徽省合肥市蜀山区合作化南路42号国家同步辐射实验室", function(point){
-            if (point) {
-            map.centerAndZoom(point, 16);
-            map.addOverlay(new BMapGL.Marker(point));
-            }}, "合肥市"); 
+            
 
             setTimeout(function(){
 
