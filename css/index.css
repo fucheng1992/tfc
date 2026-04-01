@@ -50,7 +50,7 @@ h5,
 h6 {
     font-weight: 400;
     line-height: 1.25;
-    color: #313131;
+    color: var(--text);
     text-rendering: optimizeLegibility;
     overflow-wrap: break-word;
     word-wrap: break-word;
@@ -62,7 +62,25 @@ h6 {
 ul,ol,li{list-style: none;}
 img{border:0;}
 a{color: var(--link);text-decoration:none;}
-a:hover{color: var(--link-hover);}
+a:hover{color: var(--link-hover);} 
+
+#paper-list .paper-content {
+    background: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+#about .profile.pro-r p, #about .profile.pro-r li, .ul-paper li .paper-content {
+    color: var(--text);
+} 
+
+body, .page-body, .home-section, .paper-content, .profile, .network-icon, .edu-profile, .email-wz, .ul-paper li, .paper-content {
+    color: var(--text);
+}
+
+body a, body a:hover {
+    color: var(--link);
+}
 :focus{outline:0}
 p{margin-bottom: 0;}
 label{font-weight: normal;}
