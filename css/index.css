@@ -70,6 +70,13 @@ a:hover{color: var(--link-hover);}
     border: 1px solid var(--border);
 }
 
+.pub-title {
+    font-weight: 700;
+    color: var(--text);
+    display: block;
+    margin-bottom: 6px;
+}
+
 #about .profile.pro-r p, #about .profile.pro-r li, .ul-paper li .paper-content {
     color: var(--text);
 } 

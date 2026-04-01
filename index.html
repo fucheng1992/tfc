@@ -341,27 +341,6 @@
                 </li>
             </ul>
         </section>
-
-        <section id="contact"  class="home-section">
-            <h1 class="commend-title">Contact</h1>
-            <ul class="email-wz">
-                <li>
-                    <img src="./author/email.png"/>
-                    <a href="mailto:tfc1992@ustc.edu.cn">tfc1992@ustc.edu.cn</a>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href="mailto:tianfc@sci.hokudai.ac.jp">tianfc@sci.hokudai.ac.jp</a>
-                    
-                </li>
-                <li> 
-                    <img src="./author/wz.png"/>
-                    <p>Laboratory of Soft & Wet Matter</p>
-                    <p>Faculty of Advanced Life Science</p>
-                    <p>Hokkaido University</p>
-                    <p>North 21 West 11, Kita-ku, Sapporo, Hokkaido 001-0021 JAPAN</p>
-                    <div id="map-container"></div>
-                </li>
-               
-            </ul>
-        </section>
     </div>
     <script>
         var system ={};  
@@ -425,16 +404,22 @@
                     list.innerHTML = '<li><div class="paper-content">尚未找到发表记录，请检查 scholar_id 设置或手动生成 publications.json。</div></li>';
                     return;
                 }
-                pubs.sort((a, b) => new Date(b.year) - new Date(a.year));
+                pubs.sort((a, b) => {
+                    const ya = parseInt(a.year, 10) || 0;
+                    const yb = parseInt(b.year, 10) || 0;
+                    return yb - ya;
+                });
                 pubs.forEach(pub => {
                     const li = document.createElement('li');
-                    li.innerHTML = '<span class="v-timeline--item"></span><div class="paper-content"><strong>' +
-                        (pub.authors || '') + '</strong>. ' +
-                        (pub.title || '') + '<br><em>' +
-                        (pub.journal || pub.venue || '') + '</em>' +
-                        (pub.year ? ', ' + pub.year : '') +
-                        (pub.url ? ' · <a href="' + pub.url + '" target="_blank" rel="noopener">查看</a>' : '') +
-                        '</div>';
+                    const authors = pub.authors ? '<strong>' + pub.authors + '</strong>. ' : '';
+                    const title = pub.title ? '<span class="pub-title">' + pub.title + '</span>' : '';
+                    const journal = pub.journal ? '<em>' + pub.journal + '</em>' : '';
+                    const year = pub.year ? ', ' + pub.year : '';
+                    const cites = pub.citations ? ' · 引用：' + pub.citations : '';
+                    const url = pub.url ? ' · <a href="' + pub.url + '" target="_blank" rel="noopener">查看</a>' : '';
+
+                    li.innerHTML = '<span class="v-timeline--item"></span><div class="paper-content">' +
+                        authors + title + '<br>' + journal + year + cites + url + '</div>';
                     list.appendChild(li);
                 });
             }

@@ -13,17 +13,49 @@ except ImportError:
     sys.exit(1)
 
 
-def fetch_publications(scholar_id, max_pubs=50):
+def extract_journal_from_citation(citation):
+    if not citation or not isinstance(citation, str):
+        return ''
+    # citation example: "Computer Methods in Applied Mechanics and Engineering 372, 113376, 2020"
+    parts = citation.split(',')
+    if parts:
+        first = parts[0].strip()
+        # 从末尾去掉年份数字
+        first_parts = first.rsplit(' ', 1)
+        if first_parts and len(first_parts) > 1 and first_parts[-1].isdigit():
+            return first_parts[0].strip()
+        return first
+    return ''
+
+
+def fetch_publications(scholar_id, max_pubs=100):
     author = scholarly.search_author_id(scholar_id)
     author = scholarly.fill(author, sections=["publications"])
     pubs = []
     for p in author.get('publications', [])[:max_pubs]:
+        try:
+            p = scholarly.fill(p)  # 获取详细bib信息
+        except Exception:
+            pass
+        bib = p.get('bib', {}) if isinstance(p, dict) else {}
+        title = bib.get('title', '')
+        authors = bib.get('author', author.get('name', ''))
+        journal = bib.get('journal', '') or bib.get('venue', '') or extract_journal_from_citation(bib.get('citation', ''))
+        year = bib.get('pub_year', '') or bib.get('year', '')
+        if isinstance(year, int):
+            year = str(year)
+        elif isinstance(year, str) and not year.isdigit():
+            year = ''.join(filter(str.isdigit, year))
+        num_citations = p.get('num_citations', 0)
+        url = bib.get('url', '') or p.get('pub_url', '') or p.get('citedby_url', '')
+
         pub = {
-            'title': p.get('bib', {}).get('title', ''),
-            'authors': p.get('bib', {}).get('author', ''),
-            'journal': p.get('bib', {}).get('venue', '') or p.get('bib', {}).get('journal', ''),
-            'year': p.get('bib', {}).get('year', ''),
-            'url': p.get('bib', {}).get('url', '') or p.get('pub_url', ''),
+            'title': title,
+            'authors': authors,
+            'journal': journal,
+            'year': year,
+            'citations': num_citations,
+            'url': url,
         }
         pubs.append(pub)
     return pubs
