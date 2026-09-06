@@ -395,11 +395,6 @@ figcaption {
   line-height: 1.45;
 }
 
-.research-gallery-three .research-media:last-child {
-  grid-column: 1 / -1;
-  width: calc(50% - 7px);
-}
-
 /* Publications */
 
 .publication-heading {
