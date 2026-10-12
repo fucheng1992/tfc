@@ -595,9 +595,25 @@ footer {
 
 .footer-inner {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   gap: 20px;
   font-size: 10px;
+}
+
+.footer-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+
+.page-views {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.footer-inner > a {
+  white-space: nowrap;
 }
 
 /* Responsive */

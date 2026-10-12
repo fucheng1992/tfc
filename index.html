@@ -620,7 +620,12 @@
 
   <footer>
     <div class="wrap footer-inner">
-      <span>&copy; <span id="year">2026</span> Fucheng Tian &middot; Updated September 2026</span>
+      <div class="footer-info">
+        <span>&copy; <span id="year">2026</span> Fucheng Tian &middot; Updated October 2026</span>
+        <span class="page-views" id="busuanzi_container_page_pv" style="display: none;" title="Cumulative views for this page, recorded by Busuanzi. Reloads count as additional views.">
+          Page views: <span id="busuanzi_value_page_pv"></span>
+        </span>
+      </div>
       <a href="#top">Back to top</a>
     </div>
   </footer>
@@ -644,6 +649,15 @@
         });
       }, { threshold: 0.35 });
       videos.forEach(video => observer.observe(video));
+    }
+
+    // Keep local previews out of the public page-view count.
+    if (location.protocol === 'https:' && location.hostname === 'fucheng1992.github.io' &&
+        location.pathname.startsWith('/tfc/')) {
+      const counterScript = document.createElement('script');
+      counterScript.async = true;
+      counterScript.src = 'https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js';
+      document.head.appendChild(counterScript);
     }
   </script>
 </body>
